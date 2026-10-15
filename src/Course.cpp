@@ -6,7 +6,11 @@ using namespace std;
 
 // ---------- Constructors ----------
 // Default constructor
-Course::Course() : courseName(""), creditHours(0), letterGrade("F") {}
+Course::Course() {
+    courseName = "";
+    creditHours = 0;
+    letterGrade = "F";
+}
  
 // Parameterized constructor
 Course::Course(const string& courseName, int creditHours, const string& letterGrade) {
