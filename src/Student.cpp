@@ -96,7 +96,7 @@ void Student::printTranscript(int sortMode) const {
     }
 
     // Title
-    cout << "\n\n============= Student Grade Report =============\n";
+    cout << endl << endl << setfill('=') << setw(13) << "" << " Student Grade Report " << setw(13) << "" << setfill(' ') << endl;
     cout << "Student: " << name << endl;
     if (sortMode == 1) cout << "(sorted by credits)" << endl;
     if (sortMode == 2) cout << "(sorted by course name)" << endl;
@@ -107,7 +107,7 @@ void Student::printTranscript(int sortMode) const {
          << right << setw(8) << "Credits"
          << setw(10) << "GradePts"
          << setw(10) << "TotalPts" << endl;
-    cout << "------------------------------------------------" << endl;
+    cout << setfill('-') << setw(48) << "" << setfill(' ') << endl;
 
     // One row for each course
     cout << fixed << setprecision(2);
@@ -118,12 +118,12 @@ void Student::printTranscript(int sortMode) const {
              << setw(10) << list[i].getGradePoints()
              << setw(10) << list[i].getTotalPoints() << endl;
     }
-    cout << "------------------------------------------------" << endl;
+    cout << setfill('-') << setw(48) << "" << setfill(' ') << endl;
 
     // Summary
     cout << "Total Credits: " << setw(13) << getTotalCredits() << endl;
     cout << "Total Points:  " << setw(15) << getTotalPoints() << endl;
     cout << "Semester GPA:  " << setw(15) << getGPA() << endl;
     cout << "Standing:      " << setw(20) << getStanding() << endl;
-    cout << "================================================" << endl;
+    cout << setfill('=') << setw(48) << "" << setfill(' ') << endl;
 }
