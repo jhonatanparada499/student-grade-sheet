@@ -12,15 +12,18 @@
 #include "Course.h"
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include <string>
 
 using namespace std;
 
+using namespace std;
+
 class Student {
 private:
-  std::string name;
-  std::vector<Course> courses;
+  string name;
+  vector<Course> courses;
 
 public:
     // Constructors
