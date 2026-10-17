@@ -56,7 +56,7 @@ public:
  *
  * Tazim's Reflection: It was tricky to design the Student class because I
  *  had to think about what attributes and methods a Student class should have.
- *  I learned that a Student class should have a name and a list of courses, 
- *  and that it should have methods to add courses, get the total credits and 
+ *  I learned that a Student class should have a name and a list of courses,
+ *  and that it should have methods to add courses, get the total credits and
  *  points, calculate the GPA, and print the transcript.
  */
