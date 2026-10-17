@@ -1,4 +1,4 @@
-// Author: Tazim Ahmed
+// Author: Tazim Ahmed & Johnatan Parada
 // Date: October 12, 2026
 // Course: CSCI 272 - Object Oriented Programming
 // Group Project: Student Grade Sheet 
@@ -90,25 +90,20 @@ int main() {
     }
 
     // 4. Print the transcript
-    student.printTranscript(0);
+    student.printTranscript();
 
-    // 5. Extra credit
-    cout << "\nSort the transcript?\n";
-    cout << "  0 = No" << endl;
-    cout << "  1 = By credits (highest first)" << endl;
-    cout << "  2 = By course name (A-Z)" << endl;
-    int choice = getNumber("Your choice: ", 0, 2);
-
-    if (choice != 0) {
-        student.printTranscript(choice);
-    }
 
     return 0;
 }
 
 
 /**
- * Jhonatan's Reflection: 
+  * Jhonatan's Reflection: I was reviewing Tazim's code and noticed that
+ * cin.ignore was being given a paramter of 1000(meaning the first 1000
+ * characters until it hits \n) But then I remember the class slides. Something
+ * called numberic_limits was being used instead. So I suggested the changes to
+ * Tazim. cin.ignore is pretty much used when a program uses the shift operator
+ * (<<) and the getline function. If it only used <<, it wouldn't be necessary.
  *
  * Tazim's Reflection: Working on this file became easier after we had 
  * the Student and Course classes. I learned that the main function 
