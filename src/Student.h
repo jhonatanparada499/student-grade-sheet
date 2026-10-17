@@ -42,7 +42,7 @@ public:
     string getStanding() const;
 
     // sortMode: 0 = order entered, 1 = by credits, 2 = by name
-    void printTranscript(int sortMode = 0) const;
+    void printTranscript() const;
 };
 
 

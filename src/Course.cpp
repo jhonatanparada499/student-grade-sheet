@@ -1,3 +1,12 @@
+// Course.cpp
+
+/**
+ * Author(s): Jhonatan Parada & Tazim Ahmed
+ * Date: Oct 17, 2026
+ * Group: 7
+ */
+
+
 
 #include "Course.h"
 #include <string>

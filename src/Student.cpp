@@ -1,10 +1,11 @@
-// Author: Tazim Ahmed
+// Author: Tazim Ahmed & Jhonatan Parada
 // Date: October 12, 2026
 // File: Student.cpp - defines the Student class member functions
 
 #include "Student.h"
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 using namespace std;
 
 // ---------- Constructors ----------
@@ -72,34 +73,23 @@ string Student::getStanding() const {
     }
 }
 
-// ---------- Sorting (extra credit) ----------
-
-// true if course a should come before course b (credits high to low)
-bool compareByCredits(const Course& a, const Course& b) {
-    return a.getCreditHours() > b.getCreditHours();
-}
+// ---------- Sorting ----------
 
 // true if course a should come before course b (name A-Z)
 bool compareByName(const Course& a, const Course& b) {
     return a.getCourseName() < b.getCourseName();
 }
 
-// ---------- Print the transcript ----------
-void Student::printTranscript(int sortMode) const {
+// ---------- Print the transcript (sorted by course name) ----------
+void Student::printTranscript() const {
     // make a copy so the original order is not changed
     vector<Course> list = courses;
-
-    if (sortMode == 1) {
-        sort(list.begin(), list.end(), compareByCredits);
-    } else if (sortMode == 2) {
-        sort(list.begin(), list.end(), compareByName);
-    }
+    sort(list.begin(), list.end(), compareByName);
 
     // Title
     cout << endl << endl << setfill('=') << setw(13) << "" << " Student Grade Report " << setw(13) << "" << setfill(' ') << endl;
     cout << "Student: " << name << endl;
-    if (sortMode == 1) cout << "(sorted by credits)" << endl;
-    if (sortMode == 2) cout << "(sorted by course name)" << endl;
+    cout << "(sorted by course name)" << endl;
     cout << endl;
 
     // Table header
