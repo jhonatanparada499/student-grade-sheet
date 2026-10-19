@@ -100,8 +100,6 @@ void Student::printTranscript(int sortMode) const {
     // Title
     cout << endl << endl << setfill('=') << setw(13) << "" << " Student Grade Report " << setw(13) << "" << setfill(' ') << endl;
     cout << "Student: " << name << endl;
-    if (sortMode == 1) cout << "(sorted by credits)" << endl;
-    if (sortMode == 2) cout << "(sorted by course name)" << endl;
     cout << endl;
 
     // Table header

@@ -1,18 +1,25 @@
-// Author: Tazim Ahmed
-// Date: October 12, 2026
-// Course: CSCI 272 - Object Oriented Programming
-// Group Project: Student Grade Sheet 
+// main.cpp
+
+/**
+ * Author(s): Tazim Ahmed & Jhonatan Parada
+ * Date: October 17, 2026
+ * Group: 7
+ *
+ * Git Repo:
+ * github.com/jhonatanparada499/student-grade-sheet
+ */
 
 #include <iostream>
 #include <string>
-#include <cctype>
+// Required for numeric_limits in cin.ignore
+#include <limits>
+
 #include "Course.h"
 #include "Student.h"
 
 using namespace std;
 
 // Asks for a whole number between min and max.
-
  int getNumber(string str, int min, int max) {
     int number;
     while (true) {
@@ -20,16 +27,15 @@ using namespace std;
         cin >> number;
 
         if (cin.fail()) {
-            // user typed letters instead of a number
             cin.clear(); // reset cin
-            cin.ignore(1000, '\n'); // throw away bad input
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // throw away bad input
             cout << "  Invalid input. Please enter a number." << endl;
         } else if (number < min || number > max) {
-            cin.ignore(1000, '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "  Please enter a number from " << min << " to " << max << "." << endl;
         } else {
             // remove the leftover Enter key so getline works next time
-            cin.ignore(1000, '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             return number;
         }
     }
@@ -88,18 +94,27 @@ int main() {
     }
 
     // 4. Print the transcript
-    student.printTranscript(0);
-
-    // 5. Extra credit
-    cout << "\nSort the transcript?\n";
-    cout << "  0 = No" << endl;
-    cout << "  1 = By credits (highest first)" << endl;
-    cout << "  2 = By course name (A-Z)" << endl;
-    int choice = getNumber("Your choice: ", 0, 2);
-
-    if (choice != 0) {
-        student.printTranscript(choice);
-    }
+    student.printTranscript(2); // Sort asc by course name
 
     return 0;
 }
+
+
+/**
+ * Jhonatan's Reflection: I was reviewing Tazim's code and noticed that
+ * cin.ignore was being given a paramter of 1000(meaning the first 1000
+ * characters until it hits \n) But then I remember the class slides. Something
+ * called numberic_limits was being used instead. So I suggested the changes to
+ * Tazim. cin.ignore is pretty much used when a program uses the shift operator
+ * (<<) and the getline function. If it only used <<, it wouldn't be necessary.
+ *
+ * Tazim's Reflection: Working on this file became easier after we had 
+ * the Student and Course classes. I learned that the main function 
+ * should handle user input and output, while the Student and Course classes 
+ * should handle the data and calculations like backend logic. I also 
+ * learned that it is important to validate user input to prevent errors.
+ * Like created unlimited loops for getGrade, getText and getNumber to get 
+ * the user to enter the correct input. I also learned that the main 
+ * function should be kept simple and not contain too much logic, 
+ * and that it should delegate tasks to the appropriate classes and methods.
+ */
